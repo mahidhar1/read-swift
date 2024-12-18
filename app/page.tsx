@@ -1,101 +1,215 @@
-import Image from "next/image";
+"use client";
+import React from "react";
 
-export default function Home() {
+import { Button } from "@/components/ui/button";
+
+import { BookOpen, TrendingUp } from "lucide-react";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
+// Mock Authentication State
+const App = () => {
+  // const ReadingTestPage = () => {
+  //   return (
+  //     <div className="min-h-screen bg-gray-50 flex flex-col">
+  //       <Navbar />
+  //       <div className="flex-grow container mx-auto flex items-center justify-center px-6 py-12">
+  //         <Card className="w-[500px] bg-white shadow-xl">
+  //           <CardHeader>
+  //             <CardTitle className="text-center text-purple-600">
+  //               Reading Speed Test
+  //             </CardTitle>
+  //           </CardHeader>
+  //           <CardContent className="space-y-4">
+  //             <Button className="w-full bg-purple-600 hover:bg-purple-700">
+  //               Upload Text File
+  //             </Button>
+  //             <Separator className="my-4" />
+  //             <Button className="w-full bg-purple-600 hover:bg-purple-700">
+  //               Start AI-Generated Test
+  //             </Button>
+  //           </CardContent>
+  //         </Card>
+  //       </div>
+  //       <Footer />
+  //     </div>
+  //   );
+  // };
+
+  // const Dashboard = () => {
+  //   return (
+  //     <div className="min-h-screen bg-gray-50 flex flex-col">
+  //       <Navbar />
+  //       <div className="flex-grow container mx-auto px-6 py-12">
+  //         <h1 className="text-3xl font-bold mb-6">Your Reading Journey</h1>
+  //         <div className="grid grid-cols-3 gap-6">
+  //           <Card>
+  //             <CardHeader>
+  //               <CardTitle>Current Speed</CardTitle>
+  //             </CardHeader>
+  //             <CardContent className="text-center">
+  //               <div className="text-4xl font-bold text-purple-600">
+  //                 250 WPM
+  //               </div>
+  //             </CardContent>
+  //           </Card>
+  //           <Card>
+  //             <CardHeader>
+  //               <CardTitle>Target Speed</CardTitle>
+  //             </CardHeader>
+  //             <CardContent className="text-center">
+  //               <div className="text-4xl font-bold text-green-600">350 WPM</div>
+  //             </CardContent>
+  //           </Card>
+  //           <Card>
+  //             <CardHeader>
+  //               <CardTitle>Progress</CardTitle>
+  //             </CardHeader>
+  //             <CardContent className="text-center">
+  //               <div className="text-2xl font-bold text-blue-600">+40%</div>
+  //             </CardContent>
+  //           </Card>
+  //         </div>
+  //       </div>
+  //       <Footer />
+  //     </div>
+  //   );
+  // };
+
+  // const Pricing = () => {
+  //   return (
+  //     <div className="min-h-screen bg-gray-50 flex flex-col">
+  //       <Navbar />
+  //       <div className="flex-grow container mx-auto px-6 py-12">
+  //         <Button
+  //           variant="ghost"
+  //           className="mb-6"
+  //           onClick={() => setCurrentPage("dashboard")}
+  //         >
+  //           <ChevronLeft className="mr-2" /> Back to Dashboard
+  //         </Button>
+  //         <h1 className="text-3xl font-bold mb-6">Choose Your Plan</h1>
+  //         <div className="grid grid-cols-3 gap-6">
+  //           <Card>
+  //             <CardHeader>
+  //               <CardTitle>Free Plan</CardTitle>
+  //             </CardHeader>
+  //             <CardContent>Basic reading speed measurement</CardContent>
+  //             <CardFooter>
+  //               <Button className="w-full">Select</Button>
+  //             </CardFooter>
+  //           </Card>
+  //           <Card>
+  //             <CardHeader>
+  //               <CardTitle>Annual Plan</CardTitle>
+  //             </CardHeader>
+  //             <CardContent>Advanced analytics and tracking</CardContent>
+  //             <CardFooter>
+  //               <Button className="w-full">Select</Button>
+  //             </CardFooter>
+  //           </Card>
+  //           <Card>
+  //             <CardHeader>
+  //               <CardTitle>Lifetime Plan</CardTitle>
+  //             </CardHeader>
+  //             <CardContent>Unlimited access forever</CardContent>
+  //             <CardFooter>
+  //               <Button className="w-full">Select</Button>
+  //             </CardFooter>
+  //           </Card>
+  //         </div>
+  //       </div>
+  //       <Footer />
+  //     </div>
+  //   );
+  // };
+
+  // const Courses = () => {
+  //   return (
+  //     <div className="min-h-screen bg-gray-50 flex flex-col">
+  //       <Navbar />
+  //       <div className="flex-grow container mx-auto px-6 py-12">
+  //         <Button
+  //           variant="ghost"
+  //           className="mb-6"
+  //           onClick={() => setCurrentPage("dashboard")}
+  //         >
+  //           <ChevronLeft className="mr-2" /> Back to Dashboard
+  //         </Button>
+  //         <h1 className="text-3xl font-bold mb-6">Reading Speed Courses</h1>
+  //         {/* Course content would be added here */}
+  //       </div>
+  //       <Footer />
+  //     </div>
+  //   );
+  // };
+
+  // const renderPage = () => {
+  //   switch (currentPage) {
+  //     case "landing":
+  //       return <LandingPage />;
+  //     case "reading-test":
+  //       return <ReadingTestPage />;
+  //     case "dashboard":
+  //       return <Dashboard />;
+  //     case "pricing":
+  //       return <Pricing />;
+  //     case "courses":
+  //       return <Courses />;
+  //     default:
+  //       return <LandingPage />;
+  //   }
+  // };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="font-sans">
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-purple-100 flex flex-col">
+        <Navbar />
+        <div className="flex-grow container mx-auto flex items-center justify-between px-6 py-12">
+          <div className="w-1/2 space-y-6">
+            <h1 className="text-5xl font-extrabold text-gray-900 leading-tight">
+              Read Faster, <br />
+              <span className="text-purple-600">Learn Smarter</span>
+            </h1>
+            <p className="text-xl text-gray-600">
+              Ditch video tutorials and podcasts. Reading is the ultimate
+              superpower of learning. Measure, improve, and accelerate your
+              reading speed with ReadSwift.
+            </p>
+            <div className="flex space-x-4">
+              <Button
+                size="lg"
+                className="bg-purple-600 hover:bg-purple-700 text-white"
+              >
+                Get Started
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-purple-600 text-purple-600 hover:bg-purple-50"
+              >
+                View Plans
+              </Button>
+            </div>
+            <div className="flex items-center space-x-4 text-gray-600">
+              <TrendingUp className="text-green-500" />
+              <span>Average user increases reading speed by 40%</span>
+            </div>
+          </div>
+          <div className="w-1/2 flex justify-center">
+            <div className="bg-white shadow-2xl rounded-2xl p-8">
+              <BookOpen size={200} className="text-purple-300 mx-auto" />
+              <p className="text-center mt-4 text-gray-500">
+                Reading is not just about consuming words, its about
+                understanding ideas
+              </p>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <Footer />
+      </div>
     </div>
   );
-}
+};
+
+export default App;
