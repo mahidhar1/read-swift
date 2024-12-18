@@ -6,6 +6,7 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { BookOpen, LogIn } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 const Navbar = () => {
@@ -16,7 +17,9 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
         <div className="flex items-center space-x-4">
           <BookOpen className="text-purple-600" size={32} />
-          <h1 className="text-2xl font-bold text-gray-800">ReadSwift</h1>
+          <Link href="/">
+            <h1 className="text-2xl font-bold text-gray-800">ReadSwift</h1>
+          </Link>
         </div>
 
         <NavigationMenu>
