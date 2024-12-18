@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { BookOpen, TrendingUp } from "lucide-react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Link from "next/link";
 
 // Mock Authentication State
 const App = () => {
@@ -188,7 +189,7 @@ const App = () => {
                 variant="outline"
                 className="border-purple-600 text-purple-600 hover:bg-purple-50"
               >
-                View Plans
+                <Link href="/pricing">View Plans</Link>
               </Button>
             </div>
             <div className="flex items-center space-x-4 text-gray-600">
