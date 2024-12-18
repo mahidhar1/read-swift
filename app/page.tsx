@@ -182,7 +182,7 @@ const App = () => {
                 size="lg"
                 className="bg-purple-600 hover:bg-purple-700 text-white"
               >
-                Get Started for Free
+                <Link href="/reading-test">Get Started for Free</Link>
               </Button>
               <Button
                 size="lg"
